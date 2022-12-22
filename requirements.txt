@@ -1,0 +1,8 @@
+Flask
+Gunicorn
+numpy
+pandas
+scipy
+matplotlib
+flask_wtf
+wtforms
