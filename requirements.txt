@@ -6,3 +6,4 @@ scipy
 matplotlib
 flask_wtf
 wtforms
+wtforms.widgets.html5
