@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List of Colors</title>
+    <style type="text/css">
+    body, h1, table, tr, th, td {
+      font-family: monospace;
+    }
+    table, th, td {
+      border: 1px #DCDCDC solid;
+    }
+    th {
+      background-color: #D8D8D8;
+    }
+    .swatch {
+      width: 64px;
+    }
+    .color_hex, .color_rgb {
+      text-align: center;
+    }
+    </style>
+</head>
+<body>
+
+<h1>Colors close to RBG ({{session['red']}},{{session['green']}},{{session['blue']}})</h1>
+    <p><a href='/'>Back</a>
+    </p>
+
+    <table cellpadding="2" cellspacing="1" border="1">
+      <tr>
+        <th>Swatch</th>
+        <th>Name</th>
+        <th>HTML</th>
+          <th>Euclidean distance</th>
+          {% for i in range(session['howmany']) %}
+      </tr>
+         <tr>
+        <td class="swatch" style="background-color: {{session['hexlist'][i]}};">&nbsp;</td>
+        <td>{{session['colorlist'][i]}}</td>
+        <td class="color_hex">{{session['hexlist'][i]}}</td>
+         <td>{{ session['distancelist'][i] | round(2)}}</td>
+      </tr>
+        {% endfor %}
+
+    </table>
+<p></p>
+    <table cellpadding="2" cellspacing="1" border="1">
+      <tr>
+        <th>Swatch</th>
+        <th>Name</th>
+        <th>HTML</th>
+          <th>weighted Euclidean distance</th>
+          {% for i in range(session['howmany']) %}
+      </tr>
+         <tr>
+        <td class="swatch" style="background-color: {{session['w_hexlist'][i]}};">&nbsp;</td>
+        <td>{{session['w_colorlist'][i]}}</td>
+        <td class="color_hex">{{session['w_hexlist'][i]}}</td>
+         <td>{{ session['w_distancelist'][i] | round(2)}}</td>
+      </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
