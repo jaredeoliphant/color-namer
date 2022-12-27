@@ -21,8 +21,15 @@
     </style>
 </head>
 <body>
+<h1>The best name(s) for your chosen color is:</h1>
+{% for i in range(session['length']) %}
+    <h3>{{session['thename'][i]}}</h3>
+{% endfor %}
+<p></p>
+<p></p>
+<h2>Other colors close to RBG ({{session['red']}},{{session['green']}},{{session['blue']}}):</h2>
+    <p><a href='/'>Back</a></p>
 
-<h1>Colors close to RBG ({{session['red']}},{{session['green']}},{{session['blue']}})</h1>
     <table cellpadding="2" cellspacing="1" border="1">
       <tr>
         <th>Swatch</th>
@@ -41,5 +48,42 @@
 
     </table>
 
+    <p></p>
+    <table cellpadding="2" cellspacing="1" border="1">
+      <tr>
+        <th>Swatch</th>
+        <th>Name</th>
+        <th>HTML</th>
+          <th>weighted Euclidean distance</th>
+          {% for i in range(session['howmany']) %}
+      </tr>
+         <tr>
+        <td class="swatch" style="background-color: {{session['w_hexlist'][i]}};">&nbsp;</td>
+        <td>{{session['w_colorlist'][i]}}</td>
+        <td class="color_hex">{{session['w_hexlist'][i]}}</td>
+         <td>{{ session['w_distancelist'][i] | round(2)}}</td>
+      </tr>
+        {% endfor %}
+
+    </table>
+
+    <p></p>
+    <table cellpadding="2" cellspacing="1" border="1">
+      <tr>
+        <th>Swatch</th>
+        <th>Name</th>
+        <th>HTML</th>
+          <th>Euclidean distance in CIELAB color space</th>
+          {% for i in range(session['howmany']) %}
+      </tr>
+         <tr>
+        <td class="swatch" style="background-color: {{session['lab_hexlist'][i]}};">&nbsp;</td>
+        <td>{{session['lab_colorlist'][i]}}</td>
+        <td class="color_hex">{{session['lab_hexlist'][i]}}</td>
+         <td>{{ session['lab_distancelist'][i] | round(2)}}</td>
+      </tr>
+        {% endfor %}
+
+    </table>
 </body>
 </html>

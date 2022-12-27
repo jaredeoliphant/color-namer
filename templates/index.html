@@ -3,37 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Color Namer</title>
-    <script>
-function outputUpdateR(colorval) {
-    document.querySelector('#selected-red').value = colorval;
-}
-</script>
-    <script>
-function outputUpdateG(colorval) {
-    document.querySelector('#selected-green').value = colorval;
-}
-</script>
-    <script>
-function outputUpdateB(colorval) {
-    document.querySelector('#selected-blue').value = colorval;
-}
-</script>
 </head>
 <body>
 <form method="POST" enctype="multipart/form-data">
     {{form.hidden_tag()}}
-    {{form.red.label}}{{form.red(min=0, max=255, oninput="outputUpdateR(value)")}}
-    <output for="red" id="selected-red">{{ form.red.data }}</output>
-    <br>
-    {{form.green.label}}{{form.green(min=0, max=255, oninput="outputUpdateG(value)")}}
-    <output for="green" id="selected-green">{{ form.green.data }}</output>
-    <br>
-    {{form.blue.label}} {{form.blue(min=0, max=255, oninput="outputUpdateB(value)")}}
-    <output for="blue" id="selected-blue">{{ form.blue.data }}</output>
-    <br>
+    <label for="color-picker">Pick your favorite color:</label>
+    <input type="color" id="color-picker" name="color-picker" value="#f6f82">
     {{form.submit()}}
 </form>
-
-
 </body>
 </html>
