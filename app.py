@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, Response, session, redirect, 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, FloatField, FileField, MultipleFileField, BooleanField
 from wtforms.validators import Length, DataRequired, NumberRange
-from wtforms.widgets.html5 import ColorInput
 from werkzeug.utils import secure_filename
 import os
 import pandas as pd
